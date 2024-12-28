@@ -1,0 +1,3 @@
+# Scala Mutable State Bug
+
+This repository demonstrates a common error in Scala: using a mutable variable within an ostensibly immutable class. The `MyClass` is designed to maintain a non-negative integer value.  The `value_=` method handles negative inputs correctly by throwing an `IllegalArgumentException`, but the private mutable variable `_value` allows for potentially unintended state changes, if accessed directly, bypassing the validation. This kind of hidden mutability can be difficult to debug and lead to unpredictable behavior in larger applications.  The solution demonstrates using a `var` within the class to handle updates, but with careful control.
